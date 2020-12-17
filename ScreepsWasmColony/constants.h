@@ -1,3 +1,6 @@
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
 #include <emscripten.h>
 #include <emscripten/val.h>
 using val = emscripten::val;
@@ -211,3 +214,5 @@ using val = emscripten::val;
 
 const val RAMPART_HITS_MAX[]{ val(0),val(0),val(300000),val(1000000),val(3000000),val(10000000),val(30000000),val(100000000),val(300000000) };
 const val EXTENSION_ENERGY_CAPACITY[]{ val(50),val(50),val(50),val(50),val(50),val(50),val(50),val(100),val(200) };
+
+#endif

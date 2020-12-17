@@ -120,6 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="loop.cpp" />
+    <ClCompile Include="Spawn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.md" />
@@ -127,6 +128,8 @@
   <ItemGroup>
     <ClInclude Include="constants.h" />
     <ClInclude Include="cppreeps.hpp" />
+    <ClInclude Include="ScreepsDefs.hpp" />
+    <ClInclude Include="Spawn.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

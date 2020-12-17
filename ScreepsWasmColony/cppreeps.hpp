@@ -1,5 +1,6 @@
-/// Credit: https://github.com/screepers/cppreeps/blob/master/include/cppreeps.hpp
-#pragma once
+/// Mildly adapated from: https://github.com/screepers/cppreeps/blob/master/include/cppreeps.hpp
+#ifndef CPPREEPS_HPP
+#define CPPREEPS_HPP
 
 #include <algorithm>
 #include <iostream>
@@ -54,7 +55,7 @@ namespace utils {
 
 
 	/// Parses given val, @returns std::vector<val>
-	array_native js_array_to_vector(val const& arr) {
+	inline array_native js_array_to_vector(val const& arr) {
 		int size = arr["length"].as<int>();
 
 		array_native res; res.reserve(size);
@@ -65,7 +66,7 @@ namespace utils {
 	}
 
 	/// Parses given val, @returns std::map<std::string, val>
-	object_native js_object_to_map(val const& obj) {
+	inline object_native js_object_to_map(val const& obj) {
 		val keys = gObject.call<val>("keys", obj);
 		int size = keys["length"].as<int>();
 
@@ -101,7 +102,8 @@ namespace screeps {
 
 	/// Performs recaching of global game objects,
 	/// resets previous tick data reference counters, releases objects for GC
-	void INIT() { tick.reset(new tick_t{}); }
+	inline void INIT() { tick.reset(new tick_t{}); }
 }
 
 #undef LOG_HEAD
+#endif

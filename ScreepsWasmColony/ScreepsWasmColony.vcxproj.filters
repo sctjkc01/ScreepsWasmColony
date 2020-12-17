@@ -18,6 +18,9 @@
     <ClCompile Include="loop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Spawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.md" />
@@ -27,6 +30,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cppreeps.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreepsDefs.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

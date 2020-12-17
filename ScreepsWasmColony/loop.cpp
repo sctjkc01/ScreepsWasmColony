@@ -2,17 +2,15 @@
 #include <emscripten/val.h>
 #include <emscripten/bind.h>
 
-#include "cppreeps.hpp"
-#include "constants.h"
+#include "Spawn.h"
 
 #include <iostream>
 
 using namespace std;
-using val = emscripten::val;
 
 void loop(val Game, val Memory, val RawMemory) {
-	using namespace utils;
-	using namespace screeps;
+	//using namespace utils;
+	//using namespace screeps;
 
 	cout << "hello world" << endl;
 
@@ -25,21 +23,22 @@ void loop(val Game, val Memory, val RawMemory) {
 	if (RawMemory == val::undefined() || RawMemory == val::null()) {
 		cerr << "RawMemory is undefined or null!\n";
 	}
-	auto spawns_map = js_object_to_map(Game["spawns"]);
-	for (auto const& kv : spawns_map) {
-		auto const& name = kv.first;
-		auto const& spawn = kv.second;
+
+	WorldState::Init(Game, Memory, RawMemory);
+	
+	
+	auto spawns_map = screeps::js_object_to_map(Game["spawns"]);
+	for (auto const kv : spawns_map) {
+		auto name = kv.first;
+		auto spawn = kv.second;
+
+		Spawn s(kv.second);
 
 		cout << "Found a spawn named " << name << " with ";
 
-		auto store = spawn["store"];
-		auto held = store[RESOURCE_ENERGY].as<int>();
+		s.PrintEnergy();
 
-		cout << held << "/";
-
-		auto capacity = store.call<int>("getCapacity", RESOURCE_ENERGY);
-
-		cout << capacity << " energy inside!" << endl;
+		cout << " inside!" << endl;
 	}
 
 	return;

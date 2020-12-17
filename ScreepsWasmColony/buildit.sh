@@ -7,7 +7,7 @@ mkdir build
 rm -r dist
 mkdir dist
 
-em++ --std=c++11 --bind -s WASM=1 -s MODULARIZE=1 -s ENVIRONMENT=web -Iinclude -Ilib loop.cpp -o build/loop.js
+em++ --std=c++11 --bind -s WASM=1 -s MODULARIZE=1 -s ENVIRONMENT=web -Iinclude -Ilib $(find . -type f -name "*.cpp") -o build/loop.js
 
 cp build/loop.wasm dist/loop.wasm
 cp build/loop.js dist/loop_mod.js
